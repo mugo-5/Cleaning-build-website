@@ -10,17 +10,25 @@
   <p id="status">Loading Kim's Sparkle Cleaning Enterprise…</p>
   <script>
     (async function () {
-      const pagePath = "Kims%20Sparkle%20Cleaning%20Business%20(5).html";
+      const pagePath = 'Kims%20Sparkle%20Cleaning%20Business%20(5).html';
       try {
         const response = await fetch(pagePath, { cache: 'no-store' });
         if (!response.ok) throw new Error('The website page could not be loaded.');
+
         const page = await response.text();
         if (!page.includes('</body>')) throw new Error('The website page is incomplete.');
+
         document.open();
-        document.write(page.replace('</body>', '<script src="quote-form.js"><\\/script></body>'));
+        document.write(page);
         document.close();
+
+        const formScript = document.createElement('script');
+        formScript.src = 'quote-form.js';
+        formScript.async = false;
+        document.body.appendChild(formScript);
       } catch (error) {
-        document.getElementById('status').textContent = 'The website could not be loaded. Please try again later.';
+        const status = document.getElementById('status');
+        if (status) status.textContent = 'The website could not be loaded. Please try again later.';
         console.error(error);
       }
     })();
