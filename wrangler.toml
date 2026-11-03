@@ -1,0 +1,9 @@
+name = "kims-sparkle-cleaning"
+compatibility_date = "2026-11-03"
+pages_build_output_dir = "."
+
+# Create a Cloudflare D1 database, then replace the placeholder with its ID.
+[[d1_databases]]
+binding = "DB"
+database_name = "kims-sparkle-quotes"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
