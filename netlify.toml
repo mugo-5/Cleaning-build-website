@@ -1,0 +1,14 @@
+[build]
+  publish = "."
+
+# The old standalone page now permanently points to the homepage
+[[redirects]]
+  from = "/Kims%20Sparkle%20Cleaning%20Business%20(5).html"
+  to = "/"
+  status = 301
+  force = true
+
+[[headers]]
+  for = "/sitemap.xml"
+  [headers.values]
+    Content-Type = "application/xml; charset=utf-8"
