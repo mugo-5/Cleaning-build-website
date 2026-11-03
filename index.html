@@ -55,7 +55,7 @@
     </ul>
     <p><a href="tel:+254722403033">Call Kim's Sparkle on 0722 403 033</a> or <a href="https://wa.me/254722403033">request a quote on WhatsApp</a>.</p>
     <p>Find us between KPLC and Full Gospel Solid Rock Junction in Wang'uru, Mwea.</p>
-    <p id="status">Loading the full Kim's Sparkle Cleaning Enterprise website…</p>
+    <p id="status" role="alert" hidden></p>
   </main>
   <script>
     (async function () {
@@ -77,7 +77,10 @@
         document.body.appendChild(formScript);
       } catch (error) {
         const status = document.getElementById('status');
-        if (status) status.textContent = 'The full website could not be loaded. Please try again later.';
+        if (status) {
+          status.textContent = 'The full website could not be loaded. Please try again later.';
+          status.hidden = false;
+        }
         console.error(error);
       }
     })();
