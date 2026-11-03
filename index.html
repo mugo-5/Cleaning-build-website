@@ -3,12 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="refresh" content="0; url=Kims%20Sparkle%20Cleaning%20Business%20(5).html">
+  <meta name="theme-color" content="#1a2744">
   <title>Kim's Sparkle Cleaning Enterprise</title>
-  <link rel="canonical" href="Kims%20Sparkle%20Cleaning%20Business%20(5).html">
-  <script>window.location.replace('Kims%20Sparkle%20Cleaning%20Business%20(5).html');</script>
 </head>
 <body>
-  <p>Redirecting to <a href="Kims%20Sparkle%20Cleaning%20Business%20(5).html">Kim's Sparkle Cleaning Enterprise</a>…</p>
+  <p id="status">Loading Kim's Sparkle Cleaning Enterprise…</p>
+  <script>
+    (async function () {
+      const pagePath = "Kims%20Sparkle%20Cleaning%20Business%20(5).html";
+      try {
+        const response = await fetch(pagePath, { cache: 'no-store' });
+        if (!response.ok) throw new Error('The website page could not be loaded.');
+        const page = await response.text();
+        if (!page.includes('</body>')) throw new Error('The website page is incomplete.');
+        document.open();
+        document.write(page.replace('</body>', '<script src="quote-form.js"><\\/script></body>'));
+        document.close();
+      } catch (error) {
+        document.getElementById('status').textContent = 'The website could not be loaded. Please try again later.';
+        console.error(error);
+      }
+    })();
+  </script>
 </body>
 </html>
